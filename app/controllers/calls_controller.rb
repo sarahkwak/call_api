@@ -3,8 +3,8 @@ class CallsController < ActionController::Base
     attr_accessor :auth_id, :auth_token, :url, :version, :api, :headers, :rest
 
     def initialize(rl="https://api.plivo.com", version="v1")
-        @auth_id = ENV['AUTH_ID']
-        @auth_token = ENV['AUTH_TOKEN']
+        @auth_id = 'MAYTQ0NJI2MZNMZTZHYM'
+        @auth_token = 'NThlYWY1MTE5MzA1ZTA5YzA4NmUyZTJiM2FlNmM0'
         @url = url.chomp('/')
         @version = version
         @api = @url + '/' + @version + '/Account/' + @auth_id
@@ -77,8 +77,8 @@ class CallsController < ActionController::Base
           return request('POST', "/Call/", params)
     end
   end
-  AUTH_ID = ENV['AUTH_ID']
-  AUTH_TOKEN = ENV['AUTH_TOKEN']
+  AUTH_ID = 'MAYTQ0NJI2MZNMZTZHYM'
+  AUTH_TOKEN = 'NThlYWY1MTE5MzA1ZTA5YzA4NmUyZTJiM2FlNmM0'
   def makecall
     p = RestAPI.new(AUTH_ID, AUTH_TOKEN)
     params = {
