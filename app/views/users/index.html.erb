@@ -6,6 +6,6 @@
     Receiver Number: <br>
     <input type="text" id="receiver">
   </form>
-  <button id='call-button'>Call</button>
+  <%= button_to "call", {:controller => :calls, :action => 'makecall'} %>
   <button id='hangup-button'>Hang Up</button>
 </div>
