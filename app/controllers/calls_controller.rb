@@ -8,7 +8,7 @@ class CallsController < ActionController::Base
           @auth_token = 'NThlYWY1MTE5MzA1ZTA5YzA4NmUyZTJiM2FlNmM0'
           @url = url.chomp('/')
           @version = version
-          @api = @url + '/' + @version + '/Account/' + @auth_id + '/Call/'
+          @api = @url + '/' + @version + '/Account/' + @auth_id
           @headers = {"User-Agent" => "RubyPlivo"}
           @rest = RestClient::Resource.new(@api, @auth_id, @auth_token)
       end
@@ -93,8 +93,8 @@ class CallsController < ActionController::Base
     params = {
         'to' => '16509245485', # The phone number to which the call has to be placed
         'from' => '16503819918', # The phone number to be used as the caller id
-        'answer_url' => 'https://s3.amazonaws.com/plivosamplexml/conference_url.xml', # The URL invoked by Plivo when the outbound call is answered
-        'answer_method' => 'GET' # The method used to call the answer_url
+        'answer_url' => 'https://s3.amazonaws.com/plivosamplexml/conference_url.xml' # The URL invoked by Plivo when the outbound call is answered
+        # 'answer_method' => 'GET' # The method used to call the answer_url
     }
     p "RESPONSE MIGHT BE AN ISSUE"
     # Make an outbound call
@@ -102,6 +102,8 @@ class CallsController < ActionController::Base
     p response
     p "hello world!!!!!"
   end #makecall
+
+
 
 end #CallsController
 
