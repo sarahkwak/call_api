@@ -1,4 +1,25 @@
 class CallsController < ActionController::Base
+  module Plivo
+    class PlivoError < StandardError
+    end
+
+    class XPlivoSignature
+        attr_accessor :signature, :uri, :post_params, :auth_token
+
+        def initialize(signature, uri, post_params, auth_token)
+            @signature = signature
+            @uri = uri
+            @post_params = post_params
+            @auth_token = auth_token
+        end
+
+        def is_valid?
+            uri = @post_params.sort.reduce(@uri) {|_, (key, val)| _ += key + val}
+            return Base64.encode64(OpenSSL::HMAC.digest('sha1', @auth_token, uri)).chomp.eql? @signature
+        end
+
+    end
+
   class RestAPI
     attr_accessor :auth_id, :auth_token, :url, :version, :api, :headers, :rest
 
@@ -82,6 +103,7 @@ class CallsController < ActionController::Base
   end
   AUTH_ID = 'MAYTQ0NJI2MZNMZTZHYM'
   AUTH_TOKEN = 'NThlYWY1MTE5MzA1ZTA5YzA4NmUyZTJiM2FlNmM0'
+
   def makecall
     p "IM inside of MAKECALL FUNCTION"
     p = RestAPI.new(AUTH_ID, AUTH_TOKEN)
@@ -98,5 +120,6 @@ class CallsController < ActionController::Base
     p response
     p "hello world!!!!!"
   end
+end
 end
 
