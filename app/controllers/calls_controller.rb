@@ -88,7 +88,8 @@ class CallsController < ActionController::Base
   AUTH_TOKEN = 'NThlYWY1MTE5MzA1ZTA5YzA4NmUyZTJiM2FlNmM0'
   def makecall
     p "IM inside of MAKECALL FUNCTION"
-    p = RestAPI.new(AUTH_ID, AUTH_TOKEN)
+    p = RestAPI.new()
+    puts p
     p "IS RESTAPI INITIALIZED? LET's FITURE OUT"
     params = {
         'to' => '16509245485', # The phone number to which the call has to be placed
