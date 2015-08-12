@@ -8,7 +8,7 @@ class CallsController < ActionController::Base
           @auth_token = 'NThlYWY1MTE5MzA1ZTA5YzA4NmUyZTJiM2FlNmM0'
           @url = url.chomp('/')
           @version = version
-          @api = @url + '/' + @version + '/Account/' + @auth_id
+          @api = @url + '/' + @version + '/Account/' + @auth_id + '/Call/'
           @headers = {"User-Agent" => "RubyPlivo"}
           @rest = RestClient::Resource.new(@api, @auth_id, @auth_token)
       end

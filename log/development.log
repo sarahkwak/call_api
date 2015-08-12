@@ -4819,3 +4819,118 @@ NoMethodError (undefined method `http_code' for #<SocketError:0x007fd0e22ab1a0>)
   Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
   Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.6ms)
   Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (33.4ms)
+
+
+Started GET "/" for ::1 at 2015-08-12 15:18:49 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/application (2.9ms)
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 467ms (Views: 453.2ms | ActiveRecord: 4.9ms)
+
+
+Started POST "/call" for ::1 at 2015-08-12 15:18:52 -0700
+Processing by CallsController#makecall as HTML
+  Parameters: {"authenticity_token"=>"1o8yiB2rBl/XhW9qPu//wO+nUCAqavvN0J4hI3hHY2A8h4gaZ7I0hH0/U3msnzTAUKJd/JhaGyAW/EVTw8wSSA=="}
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `http_code' for #<SocketError:0x007fe680714be8>):
+  app/controllers/calls_controller.rb:37:in `request'
+  app/controllers/calls_controller.rb:82:in `make_call'
+  app/controllers/calls_controller.rb:101:in `makecall'
+
+
+  Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (72.1ms)
+  Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (93.9ms)
+  Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (25.3ms)
+  Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (60.9ms)
+
+
+Started POST "/call" for ::1 at 2015-08-12 15:21:00 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CallsController#makecall as HTML
+  Parameters: {"authenticity_token"=>"1o8yiB2rBl/XhW9qPu//wO+nUCAqavvN0J4hI3hHY2A8h4gaZ7I0hH0/U3msnzTAUKJd/JhaGyAW/EVTw8wSSA=="}
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `http_code' for #<SocketError:0x007f8e4b673730>):
+  app/controllers/calls_controller.rb:37:in `request'
+  app/controllers/calls_controller.rb:82:in `make_call'
+  app/controllers/calls_controller.rb:101:in `makecall'
+
+
+  Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.5ms)
+  Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (23.1ms)
+  Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.8ms)
+  Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (21.1ms)
+  Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (43.7ms)
+
+
+Started GET "/" for ::1 at 2015-08-12 15:24:11 -0700
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/application (1.0ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 387ms (Views: 383.5ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-08-12 15:24:11 -0700
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-08-12 15:24:11 -0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2015-08-12 15:24:11 -0700
+
+
+Started GET "/assets/jquery_ujs.self-ca5248a2fad13d6bd58ea121318d642f195f0b2dd818b30615f785ff365e8d1f.js?body=1" for ::1 at 2015-08-12 15:24:11 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-08-12 15:24:11 -0700
+
+
+Started GET "/assets/plivo.self-d19a14138f9def08d7ca8cc613624d7540b844d3300f5e1c5de8766c1e2f8eee.js?body=1" for ::1 at 2015-08-12 15:24:11 -0700
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-08-12 15:24:11 -0700
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for ::1 at 2015-08-12 15:24:11 -0700
+
+
+Started POST "/call" for ::1 at 2015-08-12 15:24:12 -0700
+Processing by CallsController#makecall as HTML
+  Parameters: {"authenticity_token"=>"9EHWjV5awzdq7JFiGAbqBYHcXtncSCZG6CyABqGAHwEeSWwfJEPx7MBWrXGKdiEFPtlTBW54xqsuTuR2GgtuKQ=="}
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 0.0ms)
+
+NoMethodError (undefined method `response' for #<SocketError:0x007f8e518d2cc8>):
+  app/controllers/calls_controller.rb:38:in `request'
+  app/controllers/calls_controller.rb:82:in `make_call'
+  app/controllers/calls_controller.rb:101:in `makecall'
+
+
+  Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.3ms)
+  Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (19.4ms)
+  Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (15.5ms)
+  Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (32.8ms)
