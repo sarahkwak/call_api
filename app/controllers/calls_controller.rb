@@ -3,6 +3,7 @@ class CallsController < ActionController::Base
     attr_accessor :auth_id, :auth_token, :url, :version, :api, :headers, :rest
 
     def initialize(rl="https://api.plivo.com", version="v1")
+      p "IS THIS INITIALIZED???"
         @auth_id = 'MAYTQ0NJI2MZNMZTZHYM'
         @auth_token = 'NThlYWY1MTE5MzA1ZTA5YzA4NmUyZTJiM2FlNmM0'
         @url = url.chomp('/')
@@ -74,7 +75,8 @@ class CallsController < ActionController::Base
         return [405, 'Method Not Supported']
     end
     def make_call(params={})
-          return request('POST', "/Call/", params)
+      p "MAKE_CALL FUNCTION THIS IS NOT MAKECALL"
+      return request('POST', "/Call/", params)
     end
   end
   AUTH_ID = 'MAYTQ0NJI2MZNMZTZHYM'
