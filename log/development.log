@@ -3266,3 +3266,21 @@ NoMethodError (undefined method `http_code' for #<SocketError:0x007fe9f2bc8d90>)
   Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
   Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
   Rendered /Users/sarahkwak/.rbenv/versions/2.0.0-p576/lib/ruby/gems/2.0.0/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (42.4ms)
+
+
+Started GET "/" for ::1 at 2015-08-12 10:49:28 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/application (2.1ms)
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 588ms (Views: 553.8ms | ActiveRecord: 23.9ms)
+
+
+Started GET "/" for ::1 at 2015-08-12 10:49:30 -0700
+Processing by UsersController#index as HTML
+  Rendered users/index.html.erb within layouts/application (0.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 25ms (Views: 23.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/plivo.self-5ed98cf1e16e17896efb9c586ab4f71bb22ee96ceaf237b0a3daec12e1518cc4.js?body=1" for ::1 at 2015-08-12 10:49:30 -0700
