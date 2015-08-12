@@ -84,7 +84,7 @@ class CallsController < ActionController::Base
     params = {
         'to' => '16509245485', # The phone number to which the call has to be placed
         'from' => '16503819918', # The phone number to be used as the caller id
-        'answer_url' => 'https://s3.amazonaws.com/static.plivo.com/answer.xml', # The URL invoked by Plivo when the outbound call is answered
+        'answer_url' => 'https://s3.amazonaws.com/plivosamplexml/conference_url.xml', # The URL invoked by Plivo when the outbound call is answered
         'answer_method' => 'GET' # The method used to call the answer_url
     }
 
