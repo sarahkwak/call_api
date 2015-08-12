@@ -2,7 +2,7 @@ class CallsController < ActionController::Base
   class RestAPI
     attr_accessor :auth_id, :auth_token, :url, :version, :api, :headers, :rest
 
-    def initialize(rl="https://api.plivo.com", version="v1")
+    def initialize(url="https://api.plivo.com", version="v1")
       p "IS THIS INITIALIZED???"
         @auth_id = 'MAYTQ0NJI2MZNMZTZHYM'
         @auth_token = 'NThlYWY1MTE5MzA1ZTA5YzA4NmUyZTJiM2FlNmM0'
@@ -32,6 +32,7 @@ class CallsController < ActionController::Base
                 raw = r.to_str
                 response = JSON.parse(raw)
             else
+              p response
                 code = response.http_code
                 response = JSON.parse(response.response.to_s)
             end
