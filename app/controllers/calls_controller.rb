@@ -80,6 +80,7 @@ class CallsController < ActionController::Base
   AUTH_ID = 'MAYTQ0NJI2MZNMZTZHYM'
   AUTH_TOKEN = 'NThlYWY1MTE5MzA1ZTA5YzA4NmUyZTJiM2FlNmM0'
   def makecall
+    p "IM inside of MAKECALL FUNCTION"
     p = RestAPI.new(AUTH_ID, AUTH_TOKEN)
     params = {
         'to' => '16509245485', # The phone number to which the call has to be placed
@@ -90,7 +91,8 @@ class CallsController < ActionController::Base
 
     # Make an outbound call
     response = p.make_call(params)
-    print response
+    p response
+    p "hello world!!!!!"
   end
 end
 
