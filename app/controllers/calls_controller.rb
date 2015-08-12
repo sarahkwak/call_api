@@ -84,13 +84,14 @@ class CallsController < ActionController::Base
   def makecall
     p "IM inside of MAKECALL FUNCTION"
     p = RestAPI.new(AUTH_ID, AUTH_TOKEN)
+    p "IS RESTAPI INITIALIZED? LET's FITURE OUT"
     params = {
         'to' => '16509245485', # The phone number to which the call has to be placed
         'from' => '16503819918', # The phone number to be used as the caller id
         'answer_url' => 'https://s3.amazonaws.com/plivosamplexml/conference_url.xml', # The URL invoked by Plivo when the outbound call is answered
         'answer_method' => 'GET' # The method used to call the answer_url
     }
-
+    p "RESPONSE MIGHT BE AN ISSUE"
     # Make an outbound call
     response = p.make_call(params)
     p response
