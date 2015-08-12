@@ -2,7 +2,7 @@ class CallsController < ActionController::Base
   class RestAPI
     attr_accessor :auth_id, :auth_token, :url, :version, :api, :headers, :rest
 
-    def initialize(url="https://s3.amazonaws.com/plivosamplexml/conference_url.xml", version="v1")
+    def initialize(rl="https://api.plivo.com", version="v1")
         @auth_id = ENV['AUTH_ID']
         @auth_token = ENV['AUTH_TOKEN']
         @url = url.chomp('/')
