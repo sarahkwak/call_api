@@ -4,106 +4,105 @@ class CallsController < ActionController::Base
     end
 
     class XPlivoSignature
-        attr_accessor :signature, :uri, :post_params, :auth_token
+      attr_accessor :signature, :uri, :post_params, :auth_token
 
-        def initialize(signature, uri, post_params, auth_token)
-            @signature = signature
-            @uri = uri
-            @post_params = post_params
-            @auth_token = auth_token
-        end
+      def initialize(signature, uri, post_params, auth_token)
+          @signature = signature
+          @uri = uri
+          @post_params = post_params
+          @auth_token = auth_token
+      end
 
-        def is_valid?
-            uri = @post_params.sort.reduce(@uri) {|_, (key, val)| _ += key + val}
-            return Base64.encode64(OpenSSL::HMAC.digest('sha1', @auth_token, uri)).chomp.eql? @signature
-        end
+      def is_valid?
+          uri = @post_params.sort.reduce(@uri) {|_, (key, val)| _ += key + val}
+          return Base64.encode64(OpenSSL::HMAC.digest('sha1', @auth_token, uri)).chomp.eql? @signature
+      end
+    end #XPlivo Class
 
-    end
+    class RestAPI
+      attr_accessor :auth_id, :auth_token, :url, :version, :api, :headers, :rest
 
-  class RestAPI
-    attr_accessor :auth_id, :auth_token, :url, :version, :api, :headers, :rest
+      def initialize(url="https://api.plivo.com", version="v1")
+        p "IS THIS INITIALIZED???"
+          @auth_id = 'MAYTQ0NJI2MZNMZTZHYM'
+          @auth_token = 'NThlYWY1MTE5MzA1ZTA5YzA4NmUyZTJiM2FlNmM0'
+          @url = url.chomp('/')
+          @version = version
+          @api = @url + '/' + @version + '/Account/' + @auth_id
+          @headers = {"User-Agent" => "RubyPlivo"}
+          @rest = RestClient::Resource.new(@api, @auth_id, @auth_token)
+      end
 
-    def initialize(url="https://api.plivo.com", version="v1")
-      p "IS THIS INITIALIZED???"
-        @auth_id = 'MAYTQ0NJI2MZNMZTZHYM'
-        @auth_token = 'NThlYWY1MTE5MzA1ZTA5YzA4NmUyZTJiM2FlNmM0'
-        @url = url.chomp('/')
-        @version = version
-        @api = @url + '/' + @version + '/Account/' + @auth_id
-        @headers = {"User-Agent" => "RubyPlivo"}
-        @rest = RestClient::Resource.new(@api, @auth_id, @auth_token)
-    end
+      def hash_to_params(myhash)
+          return myhash.map { |k, v| "#{CGI.escape(k.to_s)}=#{CGI.escape(v.to_s)}" }.join("&")
+      end
 
-    def hash_to_params(myhash)
-        return myhash.map { |k, v| "#{CGI.escape(k.to_s)}=#{CGI.escape(v.to_s)}" }.join("&")
-    end
+      def request(method, path, params=nil)
+          if method == "POST"
+              if not params
+                  params = {}
+              end
+              begin
+                  r = @rest[path].post params.to_json, :content_type => 'application/json'
+              rescue => e
+                  response = e
+              end
+              if not response
+                  code = r.code
+                  raw = r.to_str
+                  response = JSON.parse(raw)
+              else
+                p response
+                  code = response.http_code
+                  response = JSON.parse(response.response.to_s)
+              end
+              return [code, response]
+          elsif method == "GET"
+              if params
+                  path = path + '?' + hash_to_params(params)
+              end
 
-    def request(method, path, params=nil)
-        if method == "POST"
-            if not params
-                params = {}
-            end
-            begin
-                r = @rest[path].post params.to_json, :content_type => 'application/json'
-            rescue => e
-                response = e
-            end
-            if not response
-                code = r.code
-                raw = r.to_str
-                response = JSON.parse(raw)
-            else
-              p response
-                code = response.http_code
-                response = JSON.parse(response.response.to_s)
-            end
-            return [code, response]
-        elsif method == "GET"
-            if params
-                path = path + '?' + hash_to_params(params)
-            end
-
-            begin
-                r = @rest[path].get
-            rescue => e
-                response = e
-            end
-            if not response
-                code = r.code
-                raw = r.to_str
-                response = JSON.parse(raw)
-            else
-                code = response.http_code
-                response = JSON.parse(response.response.to_s)
-            end
-            return [code, response]
-        elsif method == "DELETE"
-            if params
-                path = path + '?' + hash_to_params(params)
-            end
-            begin
-                r = @rest[path].delete
-            rescue => e
-                response = e
-            end
-            if not response
-                code = r.code
-            else
-                code = response.http_code
-                response = JSON.parse(response.response.to_s)
-            end
-            return [code, ""]
-        end
-        return [405, 'Method Not Supported']
-    end
+              begin
+                  r = @rest[path].get
+              rescue => e
+                  response = e
+              end
+              if not response
+                  code = r.code
+                  raw = r.to_str
+                  response = JSON.parse(raw)
+              else
+                  code = response.http_code
+                  response = JSON.parse(response.response.to_s)
+              end
+              return [code, response]
+          elsif method == "DELETE"
+              if params
+                  path = path + '?' + hash_to_params(params)
+              end
+              begin
+                  r = @rest[path].delete
+              rescue => e
+                  response = e
+              end
+              if not response
+                  code = r.code
+              else
+                  code = response.http_code
+                  response = JSON.parse(response.response.to_s)
+              end
+              return [code, ""]
+          end
+          return [405, 'Method Not Supported']
+      end
     def make_call(params={})
       p "MAKE_CALL FUNCTION THIS IS NOT MAKECALL"
       return request('POST', "/Call/", params)
     end
-  end
+  end #RestAPI
+
   AUTH_ID = 'MAYTQ0NJI2MZNMZTZHYM'
   AUTH_TOKEN = 'NThlYWY1MTE5MzA1ZTA5YzA4NmUyZTJiM2FlNmM0'
-
   def makecall
     p "IM inside of MAKECALL FUNCTION"
     p = RestAPI.new(AUTH_ID, AUTH_TOKEN)
@@ -119,7 +118,6 @@ class CallsController < ActionController::Base
     response = p.make_call(params)
     p response
     p "hello world!!!!!"
-  end
-end
-end
+  end #makecall
+end #module
 
