@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   match 'auth/:provider/callback', to: 'sessions#create', as: 'sign_in', via: :get
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
-  post 'call' => 'calls#makecall'
+  # post 'call' => 'calls#makecall'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
