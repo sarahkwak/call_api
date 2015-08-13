@@ -1,9 +1,10 @@
-== Call App Exercise using Plivo
+Call App Exercise using Plivo
+===
 
 LetsDial is a rails app with Plivo Conference API to make a conference call between user provided two numbers. The followings are the key components. A click-to-call UI with 2 phone number inputs and a call button. When the call button is clicked, the two phone numbers should be joined in a call.
 Basic UI:
 
-* Caller and Receiver input form(phone number)
+ * Caller and Receiver input form(phone number)
 
 * Call button
 
@@ -22,11 +23,13 @@ In order to confirm that the this is API's failing, the python app https://sarah
 ![alt screenshot](https://github.com/sarahkwak/call_api/blob/master/app/assets/images/py-fail.png)
 ![alt screenshot](https://github.com/sarahkwak/call_api/blob/master/app/assets/images/sarahconfcall.png)
 
-== Side Note
+Side Note
+===
 
 Although it is possible to purchase phone numbers from Plivo, it was unable to purchase only numbers without subscribing the service. Thus, the app wasn't fully tested.
 
-== Note
+Note
+===
 
 1. It was a big decision to decide which app between outbound call or conference call is more appropriate to complete this challenge. The free trial from Plivo wasn't appear to be enough to create the conference call app, which turns out to be true.
 
@@ -38,7 +41,8 @@ Although it is possible to purchase phone numbers from Plivo, it was unable to p
 
 5. There is a place to register Incoming Carriers but there is no way to set outcoming carriers thus unable to test the app.
 
-== Next Step
+Next Step
+===
 1. Find the carrier free numbers to test the app
 
 2. Make the form to be truly linked to the calls_controller. (It is currently hard coded in params section)
