@@ -19,8 +19,8 @@ The App Status
 
 In order to confirm that the this is API's failing, the python app https://sarahconfcall.herokuapp.com/response/conference was also created and tested and got the same response from the API provider.
 
-![Alt screenshot](https://github.com/sarahkwak/call_api/blob/master/app/assets/images/py-fail.png)
-![Alt screenshot](https://github.com/sarahkwak/call_api/blob/master/app/assets/images/sarahconfcall.png)
+![alt tag](https://github.com/sarahkwak/call_api/blob/master/app/assets/images/py-fail.png)
+![alt tag](https://github.com/sarahkwak/call_api/blob/master/app/assets/images/sarahconfcall.png)
 
 == Side Note
 
