@@ -15,12 +15,12 @@ The App Status
 * In order to debug the error, the calls_controller param 'to' and 'from' is currently hard-coded.
 * The 'carrier gateway' is not solved during the development of 'letsdial' app and it is tested with ATT, Split and Verision and 3 numbers were all failed. The tested numbers are in the app/controllers/calls_controller.rb directory.
 
-![alt text](images/letsdial-heroku.png)
+![alt screenshot](https://github.com/sarahkwak/call_api/blob/master/app/assets/images/letsdial-heroku.png)
 
 In order to confirm that the this is API's failing, the python app https://sarahconfcall.herokuapp.com/response/conference was also created and tested and got the same response from the API provider.
 
-![alt text](images/py-fail.png)
-![alt text](images/sarahconfcall.png)
+![alt screenshot](https://github.com/sarahkwak/call_api/blob/master/app/assets/images/py-fail.png)
+![alt screenshot](https://github.com/sarahkwak/call_api/blob/master/app/assets/images/sarahconfcall.png)
 
 == Side Note
 
