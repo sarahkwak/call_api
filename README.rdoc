@@ -1,28 +1,47 @@
-== README
+== Call App Exercise using Plivo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
+LetsDial is a rails app with Plivo Conference API to make a conference call between user provided two numbers. The followings are the key components. a click-to-call UI with 2 phone number inputs and a call button. When the call button is clicked, the two phone numbers should be joined in a call.
 Things you may want to cover:
 
-* Ruby version
+* Caller and Receiver input form(phone number)
 
-* System dependencies
+* Call button
 
-* Configuration
+* Call drop button
 
-* Database creation
+The App Status
+* The app is deployed in https://letsdial.herokuapp.com
+* The app is failed to bridge the calls due to 'carrier gateways not found' issue.
+* In order to debug the error, the calls_controller param 'to' and 'from' is currently hard-coded value, which is still failling to bridge the call.
+* The 'carrier gateway' is not solved during this time and it is tested with ATT, Split and Verision and 3 numbers are all failed. The number is in app/controllers/calls_controller.rb params.
+![Alt screenshot](/app/assets/images/letsdial-heroku.png?raw=true)
 
-* Database initialization
+In order to confirm that the app is not failing, the python app https://sarahconfcall.herokuapp.com/response/conference is also created and got same result from the API provider.
 
-* How to run the test suite
+![Alt screenshot](/app/assets/images/py-fail.png?raw=true)
+![Alt screenshot](/app/assets/images/sarahconfcall.png?raw=true)
 
-* Services (job queues, cache servers, search engines, etc.)
+== Side Note
 
-* Deployment instructions
+I could have purchase the number from plivo but it was unable to purchase two numbers without subscribing the service. Thus, there is no way to test the app.
 
-* ...
+== Note
 
+1. It was big decision to make between outbound call app or conference call app. The free trial from Plivo wasn't appear to be enough to create the conference call app, which turns out to be true.
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+2. The Ruby gem 'Plivo' was up-to-dated yet documentation wasn't the greatest.
+
+3. In order to create https://sarahconfcall.herokuapp.com/response/conference, there are many steps being involved including deploying app to heroku. Although the app was failed, it was great learning curve.
+
+4. Still not fully understand the 'endpoint' https://manage.plivo.com/endpoint/ - their function and usage.
+
+5. There is a place to register Incoming Carriers but there is no way to set outcoming carriers thus unable to test the app.
+
+== Next Step
+1. Find the carrier free numbers to test the app
+
+2. Make the form to be truely linked to the calls_controller. (It is currently hard coded in params section)
+
+3. Basic UI and CSS would be nice!
+
+If you have any questions, please feel free to contact me via sarahseyoungkwak@gmail.com
